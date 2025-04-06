@@ -1,0 +1,16 @@
+services:
+  api:
+    build:
+      dockerfile: docker/api.Dockerfile
+    ports:
+      - "8020:80"
+    volumes:
+      - ./database.db:/code/database.db
+
+  server:
+    build:
+      dockerfile: docker/server.Dockerfile
+    ports:
+      - "8021:5000"
+    environment:
+      CCS_API_URL: "http://api:80"

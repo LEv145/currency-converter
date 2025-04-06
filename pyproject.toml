@@ -1,0 +1,35 @@
+[project]
+name = "currency-converter"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "lev145",email = "example@mail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi[standard] (>=0.115.12,<0.116.0)",
+    "sqlmodel (>=0.0.24,<0.0.25)",
+    "requests (>=2.32.3,<3.0.0)",
+    "xmltodict (>=0.14.2,<0.15.0)",
+    "flask (>=3.1.0,<4.0.0)",
+    "coverage (>=7.8.0,<8.0.0)",
+    "requests-mock (>=1.12.1,<2.0.0)",
+    "gunicorn (>=23.0.0,<24.0.0)",
+    "uvicorn (>=0.34.0,<0.35.0)"
+]
+
+[tool.poetry]
+package-mode = false
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
+
+[tool.pytest.ini_options]
+pythonpath = [
+  "src"
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

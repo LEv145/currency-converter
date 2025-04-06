@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Currency Converter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white shadow-md rounded-xl p-8 w-full max-w-md">
+        <h2 class="text-2xl font-semibold text-center mb-4">💱 Currency Converter</h2>
+
+        <form method="POST">
+            <div class="mb-4">
+                <label class="block text-gray-600">Amount:</label>
+                <input name="amount" type="number" step="0.01" required class="w-full mt-1 px-3 py-2 border rounded-md">
+            </div>
+
+            <div class="mb-4 flex gap-2">
+                <div>
+                    <label class="block text-gray-600">From:</label>
+                    <input name="from_currency" type="text" placeholder="USD" value="USD" required class="mt-1 px-3 py-2 border rounded-md w-full">
+                </div>
+                <div>
+                    <label class="block text-gray-600">To:</label>
+                    <input name="to_currency" type="text" placeholder="EUR" value="EUR" required class="mt-1 px-3 py-2 border rounded-md w-full">
+                </div>
+            </div>
+
+            <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white py-2 rounded-md">
+                Convert
+            </button>
+        </form>
+
+        {% if converted_amount is not none %}
+        <div class="mt-4 p-4 bg-green-100 text-green-700 rounded-md">
+            Converted Amount: <strong>{{ "%.6f"|format(converted_amount) }}</strong>
+        </div>
+        {% endif %}
+
+        {% if error %}
+        <div class="mt-4 p-4 bg-red-100 text-red-700 rounded-md">
+            {{ error }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
